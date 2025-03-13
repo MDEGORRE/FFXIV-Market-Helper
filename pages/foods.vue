@@ -27,11 +27,14 @@
 </template>
 
 <style>
-label > span{
+label > span {
     color: white !important;
 }
 .price, .interval {
 	text-align: center !important;
+}
+#eorzeadb_tooltip {
+    overflow: visible !important;
 }
 </style>
 
@@ -61,11 +64,14 @@ async function handleWorldChange() {
     await onWorldChange(selectedWorld.value, selectedLanguage.value, foods, foodsIds, true)
 }
 
-useHead({
-    title: "FFXIV Market Helper - Foods",
-    script: [{ src: "https://lds-img.finalfantasyxiv.com/pc/global/js/eorzeadb/loader.js?v3", body:true }],
-});
+const isDesktop = useMediaQuery('(min-width: 768px)')
 
+useHead(() => ({
+    title: "FFXIV Market Helper - Foods",
+    script: isDesktop.value
+    ? [{ src: 'https://lds-img.finalfantasyxiv.com/pc/global/js/eorzeadb/loader.js?v3', async: true, defer: true }]
+    : []
+}))
 onMounted(()=> {
     selectedLanguage.value = localStorage.getItem('preferredLanguage') !== null ? localStorage.getItem('preferredLanguage') : "en"
     selectedWorld.value = Number.isInteger(parseInt(localStorage.getItem('preferredWorld'))) ? parseInt(localStorage.getItem('preferredWorld')) : ""; 

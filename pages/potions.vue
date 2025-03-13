@@ -34,6 +34,9 @@ label > span {
 .price, .interval {
 	text-align: center !important;
 }
+#eorzeadb_tooltip {
+    overflow: visible !important;
+}
 </style>
 
 <script setup>

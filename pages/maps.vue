@@ -27,11 +27,14 @@
 </template>
 
 <style>
-label > span{
+label > span {
     color: white !important;
 }
 .price, .interval {
 	text-align: center !important;
+}
+#eorzeadb_tooltip {
+    overflow: visible !important;
 }
 </style>
 
@@ -49,6 +52,7 @@ import {
 import worlds from './worlds.js'
 import treasureMaps from './treasure-maps.js'
 import humanizeDuration from 'humanize-duration'
+import { useMediaQuery } from '@vueuse/core'
   
 const selectedWorld = ref(null)
 const selectedLanguage = ref("en")
@@ -61,10 +65,14 @@ async function handleWorldChange() {
     await onWorldChange(selectedWorld.value, selectedLanguage.value, maps, treasureMapsIds)
 }
 
-useHead({
+const isDesktop = useMediaQuery('(min-width: 768px)')
+
+useHead(() => ({
     title: "FFXIV Market Helper - Treasure maps",
-    script: [{ src: "https://lds-img.finalfantasyxiv.com/pc/global/js/eorzeadb/loader.js?v3", body:true }],
-});
+    script: isDesktop.value
+    ? [{ src: 'https://lds-img.finalfantasyxiv.com/pc/global/js/eorzeadb/loader.js?v3', async: true, defer: true }]
+    : []
+}))
 
 onMounted(()=> {
     selectedLanguage.value = localStorage.getItem('preferredLanguage') !== null ? localStorage.getItem('preferredLanguage') : "en"
