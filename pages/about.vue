@@ -22,4 +22,8 @@
 
 <script setup>
 import { FwbHeading } from 'flowbite-vue'
+
+useHead({
+    title: "FFXIV Market Helper - About",
+});
 </script>

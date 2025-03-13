@@ -41,9 +41,6 @@ label > span{
 .price, .interval {
 	text-align: center !important;
 }
-#eorzeadb_tooltip {
-    overflow: visible !important;
-}
 </style>
 
 <script setup>
@@ -84,13 +81,16 @@ async function handleWorldChange() {
     await onWorldChange(selectedWorld.value, selectedLanguage.value, materias, materiasIds)
 }
 
+useHead({
+    title: "FFXIV Market Helper - Materias",
+    script: [{ src: "https://lds-img.finalfantasyxiv.com/pc/global/js/eorzeadb/loader.js?v3", body:true }],
+});
+
 onMounted(()=> {
     selectedLanguage.value = localStorage.getItem('preferredLanguage') !== null ? localStorage.getItem('preferredLanguage') : "en"
     selectedWorld.value = Number.isInteger(parseInt(localStorage.getItem('preferredWorld'))) ? parseInt(localStorage.getItem('preferredWorld')) : ""; 
     selectedWorld.value !== "" ? handleWorldChange() : "";
 })
 
-useHead({
-    script: [{ src: "https://lds-img.finalfantasyxiv.com/pc/global/js/eorzeadb/loader.js?v3", body:true}],
-});
+
 </script>

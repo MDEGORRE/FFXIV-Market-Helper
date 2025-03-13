@@ -27,11 +27,11 @@
 </template>
 
 <style>
+label > span{
+    color: white !important;
+}
 .price, .interval {
 	text-align: center !important;
-}
-#eorzeadb_tooltip {
-    overflow: visible !important;
 }
 </style>
 
@@ -62,6 +62,7 @@ async function handleWorldChange() {
 }
 
 useHead({
+    title: "FFXIV Market Helper - Treasure maps",
     script: [{ src: "https://lds-img.finalfantasyxiv.com/pc/global/js/eorzeadb/loader.js?v3", body:true }],
 });
 

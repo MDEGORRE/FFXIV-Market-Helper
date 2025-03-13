@@ -31,15 +31,16 @@ export default async function (selectedWorld: string, selectedLanguage: string, 
             const lodestoneIdsText = await newresponse.text()
             const lodestoneIds = lodestoneIdsText.split('\n')
 
+            let languageLink;
+            switch (selectedLanguage) {
+                case 'en': languageLink = 'eu';
+                break;
+                case 'ja': languageLink = 'jp';
+                break;
+                default: languageLink = selectedLanguage
+            }
+            
             sortedItems.map((item)=> {
-                let languageLink;
-                switch (selectedLanguage) {
-                    case 'en': languageLink = 'eu';
-                    break;
-                    case 'ja': languageLink = 'jp';
-                    break;
-                    default: languageLink = selectedLanguage
-                }
                 item.lodestoneLink = "https://" + languageLink + ".finalfantasyxiv.com/lodestone/playguide/db/item/" + lodestoneIds[item.itemId - 1];
                 item.lastUploadTime = lastUploadTimes.items[parseInt(item.itemId)].lastUploadTime;
             })

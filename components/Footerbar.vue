@@ -7,6 +7,7 @@
         class="text-center"
       />
 	  <p class="text-center">FINAL FANTASY XIV © 2010 - 2025 SQUARE ENIX CO., LTD. All Rights Reserved.</p>
+    <p class="text-center">FINAL FANTASY is a registered trademark of Square Enix Holdings Co., Ltd.</p>
       <fwb-footer-link-group>
         <fwb-footer-link href="https://docs.universalis.app/">
         	Universalis API

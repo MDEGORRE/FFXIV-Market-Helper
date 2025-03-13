@@ -38,11 +38,11 @@
 
 
 <style>
+label > span{
+    color: white !important;
+}
 .price, .interval {
 	text-align: center !important;
-}
-#eorzeadb_tooltip {
-    overflow: visible !important;
 }
 </style>
 
@@ -89,7 +89,8 @@ async function handleWorldChange() {
 }
 
 useHead({
-  script: [{ src: "https://lds-img.finalfantasyxiv.com/pc/global/js/eorzeadb/loader.js?v3", body: true}],
+    title: "FFXIV Market Helper - Gears",
+    script: [{ src: "https://lds-img.finalfantasyxiv.com/pc/global/js/eorzeadb/loader.js?v3", body: true}],
 });
 
 onMounted(()=> {
