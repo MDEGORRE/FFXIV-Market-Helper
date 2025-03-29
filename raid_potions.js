@@ -1,34 +1,34 @@
 const raidPotionsData = {
-    "44162": {
-        "en": "Grade 2 Gemdraught of Strength",
-        "de": "Juwelenremedium der Stärke II",
-        "ja": "剛力の宝薬G2",
-        "fr": "Philtre prodigieux de force II"
+    "45995": {
+        "en": "Grade 3 Gemdraught of Strength",
+        "de": "Juwelenremedium der Stärke III",
+        "ja": "剛力の宝薬G3",
+        "fr": "Philtre prodigieux de force III"
     },
-    "44163": {
-        "en": "Grade 2 Gemdraught of Dexterity",
-        "de": "Juwelenremedium der Geschicklichkeit II",
-        "ja": "眼力の宝薬G2",
-        "fr": "Philtre prodigieux de dextérité II"
+    "45996": {
+        "en": "Grade 3 Gemdraught of Dexterity",
+        "de": "Juwelenremedium der Geschicklichkeit III",
+        "ja": "眼力の宝薬G3",
+        "fr": "Philtre prodigieux de dextérité III"
     },
-    "44164": {
-        "en": "Grade 2 Gemdraught of Vitality",
-        "de": "Juwelenremedium der Konstitution II",
-        "ja": "活力の宝薬G2",
-        "fr": "Philtre prodigieux de vitalité II"
+    "45997": {
+        "en": "Grade 3 Gemdraught of Vitality",
+        "de": "Juwelenremedium der Konstitution III",
+        "ja": "活力の宝薬G3",
+        "fr": "Philtre prodigieux de vitalité III"
     },
-    "44165": {
-        "en": "Grade 2 Gemdraught of Intelligence",
-        "de": "Juwelenremedium der Intelligenz II",
-        "ja": "知力の宝薬G2",
-        "fr": "Philtre prodigieux d'intelligence II"
+    "45998": {
+        "en": "Grade 3 Gemdraught of Intelligence",
+        "de": "Juwelenremedium der Intelligenz III",
+        "ja": "知力の宝薬G3",
+        "fr": "Philtre prodigieux d'intelligence III"
     },
-    "44166": {
-        "en": "Grade 2 Gemdraught of Mind",
-        "de": "Juwelenremedium der Willenskraft II",
-        "ja": "心力の宝薬G2",
-        "fr": "Philtre prodigieux d'esprit II"
-    }
+    "45999": {
+        "en": "Grade 3 Gemdraught of Mind",
+        "de": "Juwelenremedium der Willenskraft III",
+        "ja": "心力の宝薬G3",
+        "fr": "Philtre prodigieux d'esprit III"
+    },
 }
 
 export default raidPotionsData;

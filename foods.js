@@ -5,66 +5,66 @@ const foodsData = {
         "ja": "ロネークステーキ",
         "fr": "Steak de rroneek"
     },
-    "44175": {
-        "en": "Roast Chicken",
-        "de": "Brathähnchen",
-        "ja": "ローストチキン",
-        "fr": "Poulet rôti"
+    "46000": {
+      "en": "Paes de Queijo",
+      "de": "Pao de Queijo",
+      "ja": "ポン・デ・ケージョ",
+      "fr": "Pains au fromage"
     },
-    "44176": {
-        "en": "Chicken Pasta",
-        "de": "Hähnchennudeln",
-        "ja": "チキンパスタ",
-        "fr": "Pâtes au poulet"
+    "46001": {
+      "en": "Bubble Tea",
+      "de": "Tapioka-Milchtee",
+      "ja": "タピオカミルクティー",
+      "fr": "Thé aux perles"
     },
-    "44177": {
-        "en": "Churrasco",
-        "de": "Churrasco",
-        "ja": "シュラスコ",
-        "fr": "Churrasco"
+    "46002": {
+      "en": "Sweet Maple Mate",
+      "de": "Mate-Süßtee",
+      "ja": "マテ・スイートティー",
+      "fr": "Yerba maté sucré"
     },
-    "44178": {
-        "en": "Moqueca",
-        "de": "Moqueca",
-        "ja": "ムケッカ",
-        "fr": "Moqueca"
+    "46003": {
+      "en": "Mate Cookie",
+      "de": "Premium-Mate-Keks",
+      "ja": "高級マテ茶クッキー",
+      "fr": "Biscuit au yerba maté ultime"
     },
-    "44179": {
-        "en": "Cinnamon Cream Coffee",
-        "de": "Zimtkaffee mit Sahne",
-        "ja": "シナモンホイップコーヒー",
-        "fr": "Café viennois à la cardamome"
+    "46004": {
+      "en": "Alpaca Stew",
+      "de": "Alpaka-Eintopf",
+      "ja": "アルパカシチュー",
+      "fr": "Ragoût d'alpaga"
     },
-    "44180": {
-        "en": "Coffee Kukuru Rusks",
-        "de": "Kaffee-Kukuru-Zwieback",
-        "ja": "コーヒーククルラスク",
-        "fr": "Biscottes kukuru au café"
+    "46005": {
+      "en": "Lomo Saltado",
+      "de": "Rroneek Saltado",
+      "ja": "ロネーク・サルタード",
+      "fr": "Sauté de rroneek"
     },
-    "44181": {
-        "en": "Navel Orange Cookies",
-        "de": "Navelorangen-Keks",
-        "ja": "ネーブルオレンジクッキー",
-        "fr": "Biscuits à l'orange navel"
+    "46006": {
+      "en": "Solterito",
+      "de": "Ensalada de Queso",
+      "ja": "エンサラーダ・デ・ケソ",
+      "fr": "Salade au queso"
     },
-    "44182": {
-        "en": "Pineapple Orange Jelly",
-        "de": "Ananas-Orangengelee",
-        "ja": "パインオレンジゼリー",
-        "fr": "Gelée orange-ananas"
+    "46007": {
+      "en": "Mollete",
+      "de": "Mollete",
+      "ja": "モジェテ",
+      "fr": "Molletes"
     },
-    "44183": {
-        "en": "Lobster Bisque",
-        "de": "Hummerbisque",
-        "ja": "ロブスタービスク",
-        "fr": "Bisque de homard"
+    "46008": {
+      "en": "Ground Woolback Steak",
+      "de": "Wollrücken-Frikadelle",
+      "ja": "ウールバックハンバーグ",
+      "fr": "Steak haché de dos-laineux"
     },
-    "44184": {
-        "en": "Boiled Lobster",
-        "de": "Gekochter Hummer",
-        "ja": "ボイルドロブスター",
-        "fr": "Homard bouilli"
-    }
+    "46009": {
+      "en": "Woolback Steak",
+      "de": "Wollrücken-Steak",
+      "ja": "ウールバックステーキ",
+      "fr": "Steak de dos-laineux"
+    },
 }
 
 export default foodsData;

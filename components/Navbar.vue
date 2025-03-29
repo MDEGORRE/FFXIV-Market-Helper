@@ -16,6 +16,9 @@
                 <fwb-navbar-link :is-active = "route.name === 'foods' ? true: false" link="/foods">
                     Foods
                 </fwb-navbar-link>
+                <fwb-navbar-link :is-active = "route.name === 'tomes' ? true: false" link="/tomes">
+                    Tomes
+                </fwb-navbar-link>
                 <fwb-navbar-link :is-active = "route.name === 'gears' ? true: false" link="/gears">
                     Gears
                 </fwb-navbar-link>
