@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="setPreferredWorld(), setPreferredLanguage()">
+    <form class="paramForm" @submit.prevent="setPreferredWorld(), setPreferredLanguage()">
         <fwb-select
             v-model="selectedWorld"
             :options="worlds"

@@ -12,7 +12,6 @@
 export default async function (selectedWorld: string, selectedLanguage: string, items: Array<Object>, itemsIds: Array<Number>, hq: Boolean = false) {
     try {
         const response = await fetch("https://universalis.app/api/v2/aggregated/" + selectedWorld + "/" + itemsIds.join(","))
-        console.log(response)
         if (response.ok) {
             const data = await response.json()
             // do not keep items that are not sold on the world

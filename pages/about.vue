@@ -9,6 +9,7 @@
         <ul class="list-disc list-inside">
             <li>Treasure maps</li>
             <li>Materias</li>
+            <li>Tomes items</li>
             <li>Raids gears</li>
             <li>Raid potions</li>
             <li>Foods</li>

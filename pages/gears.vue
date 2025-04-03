@@ -14,10 +14,11 @@
             label="Select a type"
             />
         </form>
-    <fwb-table class="max-w-screen-md mx-auto my-3" v-if="selectedWorld !== ''">
+    <fwb-table class="max-w-screen-lg mx-auto my-3" v-if="selectedWorld !== ''">
 		<fwb-table-head>
 			<fwb-table-head-cell>Gear</fwb-table-head-cell>
-			<fwb-table-head-cell class="text-center">Price (gils)</fwb-table-head-cell>
+			<fwb-table-head-cell class="text-center">Local Price (gils)</fwb-table-head-cell>
+            <fwb-table-head-cell class="text-center">Lowest regional Price (gils)</fwb-table-head-cell>
             <fwb-table-head-cell class="text-center">Updated</fwb-table-head-cell>
 		</fwb-table-head>
 		<fwb-table-body>
@@ -25,12 +26,21 @@
 				<fwb-table-cell>
                 <a target="_blank" :href="gear.lodestoneLink" class="eorzeadb_link font-medium text-blue-600 dark:text-blue-500 hover:underline">
                     {{ gearsData[gear.itemId][selectedLanguage] }}
-                </a> <img class="inline" src="https://universalis.app/i/game/hq.png"></fwb-table-cell>
+                </a> <img class="inline" src="https://universalis.app/i/game/hq.png" alt="High quality item"></fwb-table-cell>
 				<fwb-table-cell class="price">{{ gear.hq.minListing.world.price }}</fwb-table-cell>
+                <fwb-table-cell class="price">
+                    {{ gear.hq.minListing.region.price }} 
+                    ({{ worlds.find(world => world.value === gear.hq.minListing.region.worldId).name }})
+                </fwb-table-cell>
                 <fwb-table-cell class="interval">{{ humanizeDuration(currentTime - gear.lastUploadTime, {language: selectedLanguage, units: ["mo", "w", "d", "h", "m"], round: true, delimiter: " "}) }} ago</fwb-table-cell>
 			</fwb-table-row>
             <fwb-table-row v-if="selectedType !== ''">
-                <fwb-table-cell colspan="3">Total amount: {{ Object.values(filteredGears).reduce((a,b) => a + b.hq.minListing.world.price, 0) }}</fwb-table-cell>
+                <fwb-table-cell colspan="4">Total amount (World): {{ worldPrice }}</fwb-table-cell>
+            </fwb-table-row>
+            <fwb-table-row v-if="selectedType !== ''">
+                <fwb-table-cell colspan="4">Total amount (Region): {{ regionalPrice }}
+                    <span class="text-emerald-500"> - {{ ((worldPrice - regionalPrice) / worldPrice * 100).toFixed(2) }} %</span>
+                </fwb-table-cell>
             </fwb-table-row>
     	</fwb-table-body>
     </fwb-table>
@@ -38,9 +48,6 @@
 
 
 <style>
-label > span {
-    color: white !important;
-}
 .price, .interval {
 	text-align: center !important;
 }
@@ -80,12 +87,37 @@ const gearTypes = [
     {value: "aiming", name: "Aiming"},
     {value: "casting", name: "Casting"},
     {value: "healing", name: "Healing"},
-    {value: "slaying", name: "Slaying"},
-    {value: "scouting", name: "Scouting"}
+    {value: "scouting", name: "Scouting"},
+    {value: "maiming", name: "Maiming"},
+    {value: "striking", name: "Striking"}
 ]
 
 const filteredGears = computed(() => {
-    return selectedType.value !== "" ? gears.value.filter(gear => gearsData[gear.itemId]["en"].toLowerCase().split(" ").some((string) => string === selectedType.value)) : gears.value
+    switch(selectedType.value) {
+        case "": return gears.value; break;
+        // Dragoon / Reaper / Monk / Samurai stuff: shares right side accessories
+        case "maiming": 
+        case "striking":
+        return gears.value.filter(gear => gearsData[gear.itemId]["en"].toLowerCase().split(" ").some((string) => string === selectedType.value) || gearsData[gear.itemId]["en"].toLowerCase().split(" ").some((string) => string === "slaying")); break;
+        // Ninja / Viper stuff: shares right side accessories with aiming stuff
+        case "scouting": 
+        const gearsPieces = ['Vest', 'Armguards', 'Culottes', 'Crakows', 'Longcap'];
+        return gears.value.filter(gear => gearsData[gear.itemId]["en"].toLowerCase().split(" ").some((string) => string === selectedType.value) || ( gearsData[gear.itemId]["en"].toLowerCase().split(" ").some((string) => string === "aiming") && 
+        !gearsPieces.some((gearPiece) => gearsData[gear.itemId]["en"].includes(gearPiece)))); break;
+        default: return gears.value.filter(gear => gearsData[gear.itemId]["en"].toLowerCase().split(" ").some((string) => string === selectedType.value))
+    }
+})
+
+const worldPrice = computed(() => {
+    if (selectedType.value !== '') {
+        return Object.values(filteredGears.value).reduce((a,b) => a + b.hq.minListing.world.price, 0);
+    }
+});
+
+const regionalPrice = computed(() => {
+    if (selectedType.value !== '') {
+        return Object.values(filteredGears.value).reduce((a,b) => a + b.hq.minListing.region.price, 0);
+    }
 })
 
 async function handleWorldChange() {

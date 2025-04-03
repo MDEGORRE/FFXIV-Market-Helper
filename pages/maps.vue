@@ -7,7 +7,7 @@
             label="Select a world"
             />
         </form>
-    <fwb-table class="max-w-screen-md mx-auto my-3" v-if="selectedWorld !== ''">
+    <fwb-table class="max-w-screen-lg mx-auto my-3" v-if="selectedWorld !== ''">
 		<fwb-table-head>
 			<fwb-table-head-cell>Treasure map</fwb-table-head-cell>
 			<fwb-table-head-cell class="text-center">Price (gils)</fwb-table-head-cell>

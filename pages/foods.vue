@@ -7,7 +7,7 @@
             label="Select a world"
             />
         </form>
-    <fwb-table class="max-w-screen-md mx-auto my-3" v-if="selectedWorld !== ''">
+    <fwb-table class="max-w-screen-lg mx-auto my-3" v-if="selectedWorld !== ''">
 		<fwb-table-head>
 			<fwb-table-head-cell>Food</fwb-table-head-cell>
 			<fwb-table-head-cell class="text-center">Price (gils)</fwb-table-head-cell>
@@ -17,7 +17,7 @@
 			<fwb-table-row v-for="food in foods" :key="food.itemId">
 				<fwb-table-cell>
                 <a target="_blank" :href="food.lodestoneLink" class="eorzeadb_link font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                    {{ foodsData[food.itemId][selectedLanguage] }} <img class="inline" src="https://universalis.app/i/game/hq.png">
+                    {{ foodsData[food.itemId][selectedLanguage] }} <img class="inline" src="https://universalis.app/i/game/hq.png" alt="High quality item">
                 </a></fwb-table-cell>
 				<fwb-table-cell class="price">{{ food.hq.minListing.world.price }}</fwb-table-cell>
                 <fwb-table-cell class="interval">{{ humanizeDuration(currentTime - food.lastUploadTime,  {language: selectedLanguage,  units: ["mo", "w", "d", "h", "m"], round: true, delimiter: " "}) }} ago</fwb-table-cell>
@@ -27,9 +27,6 @@
 </template>
 
 <style>
-label > span {
-    color: white !important;
-}
 .price, .interval {
 	text-align: center !important;
 }

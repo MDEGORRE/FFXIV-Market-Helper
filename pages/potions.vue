@@ -17,7 +17,7 @@
         <fwb-table-row v-for="raidPotion in raidPotions" :key="raidPotion.itemId">
             <fwb-table-cell>
                 <a target="_blank" :href="raidPotion.lodestoneLink" class="eorzeadb_link font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                {{ raidPotionsData[raidPotion.itemId][selectedLanguage] }} <img class="inline" src="https://universalis.app/i/game/hq.png">
+                {{ raidPotionsData[raidPotion.itemId][selectedLanguage] }} <img class="inline" src="https://universalis.app/i/game/hq.png" alt="High quality item">
                 </a>
             </fwb-table-cell>
             <fwb-table-cell class="price flex justify-center gap-2">{{ raidPotion.hq.minListing.world.price }}</fwb-table-cell>

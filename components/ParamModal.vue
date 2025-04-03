@@ -7,6 +7,11 @@
     </button>
 
     <fwb-modal v-if="isShowModal" @close="closeModal">
+        <template #header>
+            <div class="flex items-center text-lg">
+                Parameters
+            </div>
+        </template>
         <template #body>
             <ParamForm />
         </template>
